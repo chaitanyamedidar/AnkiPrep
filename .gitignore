@@ -1,0 +1,11 @@
+# Suppress IDE warnings about missing local.properties (expected on CI and fresh clones)
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
