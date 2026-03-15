@@ -46,3 +46,19 @@ enum class DuplicateType {
     /** similarity in [0.65, 0.85): covers the same concept with different phrasing */
     PARTIAL
 }
+
+data class SubjectRetention(
+    val subject: String,          // e.g. "Cardiology"
+    val subtopics: List<String>,  // e.g. ["HeartFailure", "Arrhythmia"]
+    val totalCards: Int,
+    val reviewedCards: Int,
+    val retentionRate: Double,    // 0.0 to 1.0
+    val strength: RetentionStrength,
+    val ankiSearchQuery: String   // pre-built query for AnkiDroid handoff
+)
+
+enum class RetentionStrength {
+    STRONG,    // retention >= 0.85
+    MODERATE,  // retention >= 0.70 and < 0.85
+    WEAK       // retention < 0.70
+}
